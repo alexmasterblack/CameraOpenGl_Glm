@@ -5,16 +5,16 @@ int WIDTH = 800, HEIGHT = 600;
 class Camera {
 public:
 	Camera() {
-		// ïîçèöèÿ êàìåðû
-		// x - êàìåðà ñäâèãàåòñÿ âïðàâî, êàðòèíêà âëåâî y - êàìåðà ïîäíèìàåòñÿ ââåðõ, êàðòèíêà âíèç, z - ÷åì áîëüøå, òåì äàëüøå êàìåðà
+		// Ã¯Ã®Ã§Ã¨Ã¶Ã¨Ã¿ ÃªÃ Ã¬Ã¥Ã°Ã»
+		// x - ÃªÃ Ã¬Ã¥Ã°Ã  Ã±Ã¤Ã¢Ã¨Ã£Ã Ã¥Ã²Ã±Ã¿ Ã¢Ã¯Ã°Ã Ã¢Ã®, ÃªÃ Ã°Ã²Ã¨Ã­ÃªÃ  Ã¢Ã«Ã¥Ã¢Ã® y - ÃªÃ Ã¬Ã¥Ã°Ã  Ã¯Ã®Ã¤Ã­Ã¨Ã¬Ã Ã¥Ã²Ã±Ã¿ Ã¢Ã¢Ã¥Ã°Ãµ, ÃªÃ Ã°Ã²Ã¨Ã­ÃªÃ  Ã¢Ã­Ã¨Ã§, z - Ã·Ã¥Ã¬ Ã¡Ã®Ã«Ã¼Ã¸Ã¥, Ã²Ã¥Ã¬ Ã¤Ã Ã«Ã¼Ã¸Ã¥ ÃªÃ Ã¬Ã¥Ã°Ã 
 		positionCamera = glm::vec3(0.0f, 0.0f, 3.0f);
-		// ïîçèöèÿ öåëè
+		// Ã¯Ã®Ã§Ã¨Ã¶Ã¨Ã¿ Ã¶Ã¥Ã«Ã¨
 		frontCamera = glm::vec3(0.0f, 0.0f, -1.0f);
-		// âåêòîð ââåðõ
+		// Ã¢Ã¥ÃªÃ²Ã®Ã° Ã¢Ã¢Ã¥Ã°Ãµ
 		upCamera = glm::vec3(0.0f, 1.0f, 0.0f);
-		// ââåðõ - âíèç
+		// Ã¢Ã¢Ã¥Ã°Ãµ - Ã¢Ã­Ã¨Ã§
 		pitch = 0.0f;
-		// ïîâîðîò âïðàâî - âëåâî
+		// Ã¯Ã®Ã¢Ã®Ã°Ã®Ã² Ã¢Ã¯Ã°Ã Ã¢Ã® - Ã¢Ã«Ã¥Ã¢Ã®
 		yaw = -90.0f;
 
 	}
@@ -23,27 +23,27 @@ public:
 	}
 
 	glm::mat4 GetProjectionMatrix() {
-		// ïîëå îáçîðà, ñîîòíîøåíèå ñòîðîí, áëèæíÿÿ è äàëüíÿÿ ïëîñêîñòü óñå÷åíèÿ ïèðàìèäû
+		// Ã¯Ã®Ã«Ã¥ Ã®Ã¡Ã§Ã®Ã°Ã , Ã±Ã®Ã®Ã²Ã­Ã®Ã¸Ã¥Ã­Ã¨Ã¥ Ã±Ã²Ã®Ã°Ã®Ã­, Ã¡Ã«Ã¨Ã¦Ã­Ã¿Ã¿ Ã¨ Ã¤Ã Ã«Ã¼Ã­Ã¿Ã¿ Ã¯Ã«Ã®Ã±ÃªÃ®Ã±Ã²Ã¼ Ã³Ã±Ã¥Ã·Ã¥Ã­Ã¨Ã¿ Ã¯Ã¨Ã°Ã Ã¬Ã¨Ã¤Ã»
 		return glm::perspective(glm::radians(45.0f), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
 	}
 
 	void ReadInput() {
-		// âïåðåä, ïðèáëèæåíèå ê öåëè
+		// Ã¢Ã¯Ã¥Ã°Ã¥Ã¤, Ã¯Ã°Ã¨Ã¡Ã«Ã¨Ã¦Ã¥Ã­Ã¨Ã¥ Ãª Ã¶Ã¥Ã«Ã¨
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
 			positionCamera += frontCamera * speed;
 		}
-		// âëåâî, âåêòîðíîå ïðîèçâåäåíèå äàåò ïåðïåíäèêóëÿð
+		// Ã¢Ã«Ã¥Ã¢Ã®, Ã¢Ã¥ÃªÃ²Ã®Ã°Ã­Ã®Ã¥ Ã¯Ã°Ã®Ã¨Ã§Ã¢Ã¥Ã¤Ã¥Ã­Ã¨Ã¥ Ã¤Ã Ã¥Ã² Ã¯Ã¥Ã°Ã¯Ã¥Ã­Ã¤Ã¨ÃªÃ³Ã«Ã¿Ã°
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
 			positionCamera -= glm::normalize(glm::cross(frontCamera, upCamera)) * speed;
 		}
-		// âïðàâî
+		// Ã¢Ã¯Ã°Ã Ã¢Ã®
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
 			positionCamera += glm::normalize(glm::cross(frontCamera, upCamera)) * speed;
 		}
-		// âíèç, îòäàëåíèå îò öåëè
+		// Ã¢Ã­Ã¨Ã§, Ã®Ã²Ã¤Ã Ã«Ã¥Ã­Ã¨Ã¥ Ã®Ã² Ã¶Ã¥Ã«Ã¨
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
 			positionCamera -= frontCamera * speed;
@@ -51,7 +51,7 @@ public:
 	}
 
 	void MouseInput(sf::Window& window) {
-		//òîðìîçà
+		//Ã²Ã®Ã°Ã¬Ã®Ã§Ã 
 		//sf::Vector2i center(window.getSize().x / 2, window.getSize().y / 2);
 		//sf::Mouse::setPosition(center, window);
 
@@ -61,7 +61,7 @@ public:
 			yPos = sf::Mouse::getPosition(window).y;
 		}
 
-		// ñìåùåíèå ñ ïðîøëîãî ïîëîæåíèÿ ìûøè
+		// Ã±Ã¬Ã¥Ã¹Ã¥Ã­Ã¨Ã¥ Ã± Ã¯Ã°Ã®Ã¸Ã«Ã®Ã£Ã® Ã¯Ã®Ã«Ã®Ã¦Ã¥Ã­Ã¨Ã¿ Ã¬Ã»Ã¸Ã¨
 		float xOffset = sf::Mouse::getPosition(window).x - xPos;
 		float yOffset = yPos - sf::Mouse::getPosition(window).y;
 		xPos = sf::Mouse::getPosition(window).x;
@@ -69,11 +69,6 @@ public:
 
 		yaw += (xOffset * speed);
 		pitch += (yOffset * speed);
-
-		if (pitch > 89.0f)
-			pitch = 89.0f;
-		if (pitch < -89.0f)
-			pitch = -89.0f;
 
 		glm::vec3 front;
 		front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
@@ -83,19 +78,19 @@ public:
 	}
 
 private:
-	// ïîçèöèÿ êàìåðû
+	// Ã¯Ã®Ã§Ã¨Ã¶Ã¨Ã¿ ÃªÃ Ã¬Ã¥Ã°Ã»
 	glm::vec3 positionCamera;
 	glm::vec3 frontCamera;
 	glm::vec3 upCamera;
 
-	// ñêîðîñòü êàìåðû
+	// Ã±ÃªÃ®Ã°Ã®Ã±Ã²Ã¼ ÃªÃ Ã¬Ã¥Ã°Ã»
 	float speed = 0.05f;
-	// óãëû ýéëåðà
+	// Ã³Ã£Ã«Ã» Ã½Ã©Ã«Ã¥Ã°Ã 
 	float yaw;
 	float pitch;
-	// êîîðäèíàòû ìûøè
+	// ÃªÃ®Ã®Ã°Ã¤Ã¨Ã­Ã Ã²Ã» Ã¬Ã»Ã¸Ã¨
 	float xPos = WIDTH / 2.0f;
 	float yPos = HEIGHT / 2.0f;
-	// äâèæåíèå ìûøüþ â ïåðâûé ðàç 
+	// Ã¤Ã¢Ã¨Ã¦Ã¥Ã­Ã¨Ã¥ Ã¬Ã»Ã¸Ã¼Ã¾ Ã¢ Ã¯Ã¥Ã°Ã¢Ã»Ã© Ã°Ã Ã§ 
 	bool mouseMove = true;
 };
