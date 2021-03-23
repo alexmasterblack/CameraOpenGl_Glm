@@ -22,7 +22,7 @@ int main() {
 	settings.minorVersion = 3;
 	settings.attributeFlags = sf::ContextSettings::Core;
 
-	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT, 32), "First Window",
+	sf::RenderWindow window(sf::VideoMode(800, 600, 32), "First Window",
 		sf::Style::Titlebar | sf::Style::Close);
 
 	window.setMouseCursorVisible(false);
