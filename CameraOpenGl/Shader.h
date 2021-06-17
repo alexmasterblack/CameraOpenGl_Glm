@@ -1,17 +1,25 @@
 #pragma once
+#include <string>
+#include <GL/glew.h>
+#include "glm/mat4x4.hpp"
+#include "glm/vec3.hpp"
+#include "shaderLoader.h"
 
 class Shader {
-public:
-	Shader(std::string vertexPath, std::string fragmentPath) {
-		shaderProgram = LoadShaders(vertexPath, fragmentPath);
-	}
-	void Use() {
-		glUseProgram(shaderProgram);
-	}
-	void SetMat4(std::string id, const glm::mat4& data) {
-		glUniformMatrix4fv(glGetUniformLocation(shaderProgram, id.c_str()), 1, GL_FALSE, &data[0][0]);
-	}
-
 private:
 	unsigned int shaderProgram;
+public:
+	Shader() = default;
+
+	Shader(std::string vertexPath, std::string fragmentPath);
+
+	void SetMat4(std::string id, const glm::mat4& data);
+
+	void SetVec3(const std::string id, const glm::vec3& data);
+
+	void SetInt(const std::string id, int data);
+
+	void SetFloat(const std::string id, float data);
+
+	void Use();
 };

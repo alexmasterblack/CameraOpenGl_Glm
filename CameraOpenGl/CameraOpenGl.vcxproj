@@ -144,14 +144,29 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraOpenGl.cpp" />
+    <ClCompile Include="Light.cpp" />
+    <ClCompile Include="Shader.cpp" />
     <ClCompile Include="shaderLoader.cpp" />
     <ClCompile Include="stb_image.cpp" />
+    <ClCompile Include="TextureLoading.cpp" />
+    <ClCompile Include="VertexArraysObject.cpp" />
+    <ClCompile Include="VertexBufferObjects.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Light.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="shaderLoader.h" />
     <ClInclude Include="stb_image.h" />
+    <ClInclude Include="TextureLoading.h" />
+    <ClInclude Include="VertexArraysObject.h" />
+    <ClInclude Include="VertexBufferObjects.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="files\shaders\cube.fs" />
+    <None Include="files\shaders\cube.vs" />
+    <None Include="files\shaders\lighting.fs" />
+    <None Include="files\shaders\lighting.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
